@@ -13,6 +13,11 @@ print(dados_perfis.describe())
 # Dados sobre o conhecimento prévio do aluno em relação ao conteúdo de lógica de programação. Assuntos que serão vistos durante a disciplina 
 print( dados_perfis.iloc[:,5:10].columns.values )
 X_LoP = dados_perfis.iloc[:,5:10].values
+
+print("\nDescrição dos dados: ")
+print(dados_perfis.iloc[:,5:10].describe())
+
+print("\nConteúdo de algumas amostras: ")
 print(X_LoP[0:3, : ])
 
 
@@ -31,7 +36,7 @@ from minisom import MiniSom
 som = MiniSom(x = tamanhoXdaRede, y = tamanhoYdaRede, input_len = quantidadeCaracteristicas, sigma = 1.0, learning_rate = 0.4)
 som.pca_weights_init(X_LoP)
 
-som.train_random(data = X_LoP, num_iteration = 80000)
+#som.train_random(data = X_LoP, num_iteration = 80000)
 
 # Obtem o vetor de pesos da rede treinada 
 pesos = som.get_weights()
